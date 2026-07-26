@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Landing Page</title>
-    <!-- Google Fonts & FontAwesome Icons -->
+    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -17,7 +17,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Remove Blue Focus Border / Outline Completely */
+        /* Blue Focus Outline Completely Off */
         *:focus, input:focus, button:focus, textarea:focus, select:focus, a:focus {
             outline: none !important;
             box-shadow: none !important;
@@ -42,4 +42,566 @@
 
         /* Glassmorphism Card Style */
         .card {
-            background: rgba(25, 18, 66,
+            background: rgba(25, 18, 66, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .company-title {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .company-tagline {
+            font-size: 11px;
+            color: #a0a0c0;
+        }
+
+        .product-id-badge {
+            background: linear-gradient(135deg, #fcd34d, #f59e0b);
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Hero Image */
+        .hero-card {
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(180deg, #1d154d 0%, #120b33 100%);
+            padding: 15px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+        }
+
+        .ribbon-badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #fbbf24, #d97706);
+            color: #1e1b4b;
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 800;
+            text-align: center;
+            z-index: 2;
+        }
+
+        /* Info Block */
+        .product-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #fbbf24;
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+
+        .sold-count {
+            font-size: 12px;
+            color: #34d399;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .price-box {
+            background: linear-gradient(135deg, #7c3aed, #4c1d95);
+            padding: 10px 14px;
+            border-radius: 16px;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .price-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #ddd6fe;
+        }
+
+        .price-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fef08a;
+            margin: 2px 0;
+        }
+
+        .stock-badge {
+            background: linear-gradient(135deg, #fcd34d, #f59e0b);
+            color: #000;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .stock-badge.out-of-stock {
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
+            color: #ffffff;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .highlight-item {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 8px 4px;
+            border-radius: 10px;
+        }
+
+        .highlight-item i {
+            font-size: 15px;
+            color: #a78bfa;
+            margin-bottom: 4px;
+        }
+
+        .highlight-item span {
+            display: block;
+            font-size: 9px;
+            color: #cbd5e1;
+        }
+
+        /* Description */
+        .desc-title {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #c084fc;
+        }
+
+        .desc-text {
+            font-size: 12px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .desc-points {
+            list-style: none;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .desc-points li {
+            font-size: 12px;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .desc-points li i {
+            color: #34d399;
+            font-size: 13px;
+        }
+
+        /* Form */
+        .order-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .section-header {
+            background: linear-gradient(90deg, #6d28d9, transparent);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .form-group label {
+            font-size: 11px;
+            color: #cbd5e1;
+        }
+
+        .form-control {
+            background: rgba(15, 10, 46, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 10px 12px;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        /* Quantity & Calculator */
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qty-btn {
+            background: #4c1d95;
+            color: #fff;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .qty-btn:disabled {
+            background: #332a54;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        .qty-val {
+            font-size: 15px;
+            font-weight: bold;
+            width: 24px;
+            text-align: center;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            padding: 6px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .summary-row.total {
+            border-bottom: none;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fef08a;
+            padding-top: 10px;
+        }
+
+        /* Pulsing Zoom Animation */
+        @keyframes pulseZoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-order {
+            background: linear-gradient(135deg, #fcd34d, #f59e0b);
+            color: #000;
+            font-weight: 800;
+            font-size: 14px;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            animation: pulseZoom 2s infinite ease-in-out;
+        }
+
+        .btn-order:disabled {
+            background: #4b5563;
+            color: #9ca3af;
+            animation: none;
+        }
+
+        /* WhatsApp Bar */
+        .whatsapp-bar {
+            background: linear-gradient(135deg, #064e3b, #047857);
+            border-radius: 20px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .wa-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wa-info i {
+            font-size: 28px;
+            color: #34d399;
+        }
+
+        .wa-text h4 {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .wa-text p {
+            font-size: 10px;
+            color: #a7f3d0;
+        }
+
+        .btn-chat {
+            background: #ffffff;
+            color: #047857;
+            font-weight: 700;
+            font-size: 11px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="card">
+            <div class="logo-area">
+                <img id="companyLogo" src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Logo">
+                <div>
+                    <div class="company-title" id="companyName">YOUR COMPANY</div>
+                    <div class="company-tagline" id="companyTagline">Quality You Can Trust</div>
+                </div>
+            </div>
+            <div class="product-id-badge">
+                <i class="fa-solid fa-tag"></i> ID: <span id="productId">0023</span>
+            </div>
+        </header>
+
+        <!-- PRODUCT HERO IMAGE -->
+        <div class="card hero-card">
+            <div class="ribbon-badge">PREMIUM QUALITY<br>★ ★ ★</div>
+            <img id="productImg" class="product-img" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Product Image">
+        </div>
+
+        <!-- PRODUCT TITLE & PRICE BLOCK -->
+        <div class="card">
+            <div class="product-title-row">
+                <div>
+                    <h1 class="product-name" id="productName">SMART WATCH ULTRA PRO</h1>
+                    <div class="sold-count">
+                        <i class="fa-solid fa-fire"></i> <span id="soldLabelText">Total Booked</span>: <span id="totalSold">1,250</span>+
+                    </div>
+                </div>
+                <div class="price-box">
+                    <div class="price-label">— PRICE —</div>
+                    <div class="price-value">৳ <span id="unitPrice">1,499</span></div>
+                    <div class="stock-badge" id="stockBadge">
+                        <i class="fa-solid fa-circle-check"></i> IN STOCK
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Badges -->
+            <div class="highlights-grid">
+                <div class="highlight-item"><i class="fa-solid fa-shield-halved"></i><span>Premium</span></div>
+                <div class="highlight-item"><i class="fa-solid fa-award"></i><span>Trusted</span></div>
+                <div class="highlight-item"><i class="fa-solid fa-truck-fast"></i><span>Fast Delivery</span></div>
+                <div class="highlight-item"><i class="fa-solid fa-headset"></i><span>24/7 Support</span></div>
+            </div>
+        </div>
+
+        <!-- DESCRIPTION & QUALITY BULLET POINTS -->
+        <div class="card">
+            <div class="desc-title"><i class="fa-solid fa-file-lines"></i> PRODUCT DESCRIPTION</div>
+            <p class="desc-text" id="productDesc">High quality smartwatch with long battery backup, full touch display, Bluetooth calling, and multiple fitness tracking modes.</p>
+            
+            <ul class="desc-points" id="descPoints">
+                <li><i class="fa-solid fa-circle-check"></i> <span>100% Original & Premium Quality Guaranteed</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span>HD Amoled Full Touch Color Display</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span>Long Battery Backup (Up to 7 Days)</span></li>
+            </ul>
+
+            <div style="margin-top: 12px; font-size: 11px; color: #a78bfa; font-weight: 600;">
+                <i class="fa-solid fa-circle-info"></i> Warranty: <span id="warrantyText">1 Year Replacement Warranty</span>
+            </div>
+        </div>
+
+        <!-- ORDER FORM & CALCULATOR SECTION -->
+        <form id="orderForm" class="card order-section">
+            <div class="section-header"><i class="fa-solid fa-truck"></i> DELIVERY INFORMATION</div>
+
+            <div class="form-group">
+                <label for="custName">Name *</label>
+                <input type="text" id="custName" class="form-control" placeholder="আপনার নাম লিখুন" required>
+            </div>
+
+            <div class="form-group">
+                <label for="custPhone">Mobile Number *</label>
+                <input type="tel" id="custPhone" class="form-control" placeholder="01XXXXXXXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label for="custAddress">Full Address *</label>
+                <input type="text" id="custAddress" class="form-control" placeholder="ঠিকানা (গ্রাম/মহল্লা, থানা, জেলা)" required>
+            </div>
+
+            <div class="section-header" style="margin-top: 5px;"><i class="fa-solid fa-receipt"></i> ORDER SUMMARY</div>
+
+            <div class="summary-row">
+                <span>Product Quantity</span>
+                <div class="qty-controls">
+                    <button type="button" class="qty-btn" id="btnQtyMinus">-</button>
+                    <span class="qty-val" id="qtyDisplay">1</span>
+                    <button type="button" class="qty-btn" id="btnQtyPlus">+</button>
+                </div>
+            </div>
+
+            <div class="summary-row">
+                <span>Delivery Charge</span>
+                <span>৳ <span id="deliveryChargeDisplay">130</span></span>
+            </div>
+
+            <div class="summary-row total">
+                <span>Total Amount</span>
+                <span>৳ <span id="totalAmountDisplay">1,629</span></span>
+            </div>
+
+            <button type="submit" id="orderBtn" class="btn-order">
+                <i class="fa-solid fa-cart-shopping"></i> PLACE ORDER
+            </button>
+        </form>
+
+        <!-- WHATSAPP CONTACT BAR -->
+        <div class="card whatsapp-bar">
+            <div class="wa-info">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div class="wa-text">
+                    <h4>CONTACT ON WHATSAPP</h4>
+                    <p>We are here to help you!</p>
+                </div>
+            </div>
+            <a href="#" id="waChatBtn" target="_blank" class="btn-chat">
+                CHAT NOW <i class="fa-solid fa-paper-plane"></i>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT CONFIGURATION & LOGIC -->
+    <script>
+        // CONFIGURATION (এখান থেকে পরিবর্তন করুন)
+        const CONFIG = {
+            companyName: "YOUR COMPANY",
+            companyTagline: "Quality You Can Trust",
+            companyLogo: "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
+            
+            productId: "0023",
+            productName: "SMART WATCH ULTRA PRO",
+            productDesc: "High quality smartwatch with long battery backup, full touch display, Bluetooth calling, and multiple fitness tracking modes.",
+            
+            descriptionPoints: [
+                "100% Original & Premium Quality Guaranteed",
+                "HD Amoled Full Touch Color Display",
+                "Long Battery Backup (Up to 7 Days)",
+                "Waterproof and Dust Resistant Body"
+            ],
+
+            productImg: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+            
+            showStockBadge: true,             // true = দেখাবে, false = হাইড থাকবে
+            inStock: true,                    // true = In Stock, false = Out of Stock
+            
+            price: 1499,
+            deliveryCharge: 130,              // ডেলিভারি চার্জ
+            warrantyDuration: "1 Year Replacement Warranty",
+            
+            whatsAppNumber: "8801700000000",   // ওয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ)
+            
+            soldLabel: "Total Booked",         // "Total Sold" অথবা "Total Booked"
+            totalSold: "1,250"
+        };
+
+        const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80";
+        let currentQuantity = 1;
+
+        // Safe Initialization Wrap
+        try {
+            document.getElementById("companyName").innerText = CONFIG.companyName || "YOUR BRAND";
+            document.getElementById("companyTagline").innerText = CONFIG.companyTagline || "";
+            if (CONFIG.companyLogo) document.getElementById("companyLogo").src = CONFIG.companyLogo;
+            document.getElementById("productId").innerText = CONFIG.productId || "001";
+            
+            document.getElementById("productName").innerText = CONFIG.productName || "PRODUCT NAME";
+            document.getElementById("productDesc").innerText = CONFIG.productDesc || "";
+            document.getElementById("soldLabelText").innerText = CONFIG.soldLabel || "Total Sold";
+            document.getElementById("totalSold").innerText = CONFIG.totalSold || "0";
+            document.getElementById("unitPrice").innerText = (CONFIG.price || 0).toLocaleString('en-IN');
+            document.getElementById("warrantyText").innerText = CONFIG.warrantyDuration || "N/A";
+
+            const imgEl = document.getElementById("productImg");
+            imgEl.src = CONFIG.productImg || DEFAULT_IMAGE;
+            imgEl.onerror = function() { this.src = DEFAULT_IMAGE; };
+
+            if (CONFIG.descriptionPoints && CONFIG.descriptionPoints.length > 0) {
+                const pointsContainer = document.getElementById("descPoints");
+                pointsContainer.innerHTML = "";
+                CONFIG.descriptionPoints.forEach(point => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${point}</span>`;
+                    pointsContainer.appendChild(li);
+                });
+            }
+
+            document.getElementById("waChatBtn").href = `https://wa.me/${CONFIG.whatsAppNumber}?text=${encodeURIComponent("Hello! I have a question about " + CONFIG
