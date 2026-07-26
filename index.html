@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Landing Page</title>
-    <!-- Google Fonts & FontAwesome -->
+    <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -17,7 +17,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Blue Focus Outline Completely Off */
         *:focus, input:focus, button:focus, textarea:focus, select:focus, a:focus {
             outline: none !important;
             box-shadow: none !important;
@@ -40,7 +39,6 @@
             gap: 20px;
         }
 
-        /* Glassmorphism Card Style */
         .card {
             background: rgba(25, 18, 66, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -50,7 +48,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -94,7 +91,6 @@
             gap: 5px;
         }
 
-        /* Hero Image */
         .hero-card {
             position: relative;
             text-align: center;
@@ -125,7 +121,6 @@
             z-index: 2;
         }
 
-        /* Info Block */
         .product-title-row {
             display: flex;
             justify-content: space-between;
@@ -212,7 +207,6 @@
             color: #cbd5e1;
         }
 
-        /* Description */
         .desc-title {
             font-size: 13px;
             font-weight: 700;
@@ -250,7 +244,6 @@
             font-size: 13px;
         }
 
-        /* Form */
         .order-section {
             display: flex;
             flex-direction: column;
@@ -288,7 +281,6 @@
             font-size: 13px;
         }
 
-        /* Quantity & Calculator */
         .qty-controls {
             display: flex;
             align-items: center;
@@ -299,23 +291,25 @@
             background: #4c1d95;
             color: #fff;
             border: none;
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
             user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .qty-btn:disabled {
-            background: #332a54;
-            color: #666;
-            cursor: not-allowed;
+        .qty-btn:active {
+            background: #6d28d9;
+            transform: scale(0.95);
         }
 
         .qty-val {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: bold;
             width: 24px;
             text-align: center;
@@ -338,7 +332,6 @@
             padding-top: 10px;
         }
 
-        /* Pulsing Zoom Animation */
         @keyframes pulseZoom {
             0% { transform: scale(1); }
             50% { transform: scale(1.02); }
@@ -369,7 +362,6 @@
             animation: none;
         }
 
-        /* WhatsApp Bar */
         .whatsapp-bar {
             background: linear-gradient(135deg, #064e3b, #047857);
             border-radius: 20px;
@@ -418,42 +410,41 @@
         <!-- HEADER -->
         <header class="card">
             <div class="logo-area">
-                <img id="companyLogo" src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Logo">
+                <img id="companyLogo" src="" alt="Logo">
                 <div>
-                    <div class="company-title" id="companyName">YOUR COMPANY</div>
-                    <div class="company-tagline" id="companyTagline">Quality You Can Trust</div>
+                    <div class="company-title" id="companyName">--</div>
+                    <div class="company-tagline" id="companyTagline">--</div>
                 </div>
             </div>
             <div class="product-id-badge">
-                <i class="fa-solid fa-tag"></i> ID: <span id="productId">0023</span>
+                <i class="fa-solid fa-tag"></i> ID: <span id="productId">--</span>
             </div>
         </header>
 
         <!-- PRODUCT HERO IMAGE -->
         <div class="card hero-card">
             <div class="ribbon-badge">PREMIUM QUALITY<br>★ ★ ★</div>
-            <img id="productImg" class="product-img" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Product Image">
+            <img id="productImg" class="product-img" src="" alt="Product Image">
         </div>
 
         <!-- PRODUCT TITLE & PRICE BLOCK -->
         <div class="card">
             <div class="product-title-row">
                 <div>
-                    <h1 class="product-name" id="productName">SMART WATCH ULTRA PRO</h1>
+                    <h1 class="product-name" id="productName">--</h1>
                     <div class="sold-count">
-                        <i class="fa-solid fa-fire"></i> <span id="soldLabelText">Total Booked</span>: <span id="totalSold">1,250</span>+
+                        <i class="fa-solid fa-fire"></i> <span id="soldLabelText">Total Sold</span>: <span id="totalSold">0</span>+
                     </div>
                 </div>
                 <div class="price-box">
                     <div class="price-label">— PRICE —</div>
-                    <div class="price-value">৳ <span id="unitPrice">1,499</span></div>
+                    <div class="price-value">৳ <span id="unitPrice">0</span></div>
                     <div class="stock-badge" id="stockBadge">
                         <i class="fa-solid fa-circle-check"></i> IN STOCK
                     </div>
                 </div>
             </div>
 
-            <!-- Features Badges -->
             <div class="highlights-grid">
                 <div class="highlight-item"><i class="fa-solid fa-shield-halved"></i><span>Premium</span></div>
                 <div class="highlight-item"><i class="fa-solid fa-award"></i><span>Trusted</span></div>
@@ -462,19 +453,15 @@
             </div>
         </div>
 
-        <!-- DESCRIPTION & QUALITY BULLET POINTS -->
+        <!-- DESCRIPTION -->
         <div class="card">
             <div class="desc-title"><i class="fa-solid fa-file-lines"></i> PRODUCT DESCRIPTION</div>
-            <p class="desc-text" id="productDesc">High quality smartwatch with long battery backup, full touch display, Bluetooth calling, and multiple fitness tracking modes.</p>
+            <p class="desc-text" id="productDesc">--</p>
             
-            <ul class="desc-points" id="descPoints">
-                <li><i class="fa-solid fa-circle-check"></i> <span>100% Original & Premium Quality Guaranteed</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>HD Amoled Full Touch Color Display</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Long Battery Backup (Up to 7 Days)</span></li>
-            </ul>
+            <ul class="desc-points" id="descPoints"></ul>
 
             <div style="margin-top: 12px; font-size: 11px; color: #a78bfa; font-weight: 600;">
-                <i class="fa-solid fa-circle-info"></i> Warranty: <span id="warrantyText">1 Year Replacement Warranty</span>
+                <i class="fa-solid fa-circle-info"></i> Warranty: <span id="warrantyText">--</span>
             </div>
         </div>
 
@@ -499,23 +486,24 @@
 
             <div class="section-header" style="margin-top: 5px;"><i class="fa-solid fa-receipt"></i> ORDER SUMMARY</div>
 
+            <!-- QUANTITY CONTROLS -->
             <div class="summary-row">
                 <span>Product Quantity</span>
                 <div class="qty-controls">
-                    <button type="button" class="qty-btn" id="btnQtyMinus">-</button>
+                    <button type="button" class="qty-btn" onclick="changeQty(-1)">-</button>
                     <span class="qty-val" id="qtyDisplay">1</span>
-                    <button type="button" class="qty-btn" id="btnQtyPlus">+</button>
+                    <button type="button" class="qty-btn" onclick="changeQty(1)">+</button>
                 </div>
             </div>
 
             <div class="summary-row">
                 <span>Delivery Charge</span>
-                <span>৳ <span id="deliveryChargeDisplay">130</span></span>
+                <span>৳ <span id="deliveryChargeDisplay">0</span></span>
             </div>
 
             <div class="summary-row total">
                 <span>Total Amount</span>
-                <span>৳ <span id="totalAmountDisplay">1,629</span></span>
+                <span>৳ <span id="totalAmountDisplay">0</span></span>
             </div>
 
             <button type="submit" id="orderBtn" class="btn-order">
@@ -539,9 +527,12 @@
 
     </div>
 
-    <!-- JAVASCRIPT CONFIGURATION & LOGIC -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // CONFIGURATION (এখান থেকে পরিবর্তন করুন)
+        /******************************************************************
+         * CONFIGURATION (তথ্যগুলো এখান থেকে এডিট করুন)
+         * দ্রষ্টব্য: টেক্সটের দুইপাশে কোটেশন ("") এবং সংখ্যার শেষে কমা (,) ঠিক রাখবেন।
+         ******************************************************************/
         const CONFIG = {
             companyName: "YOUR COMPANY",
             companyTagline: "Quality You Can Trust",
@@ -560,48 +551,68 @@
 
             productImg: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
             
-            showStockBadge: false,             // true = দেখাবে, false = হাইড থাকবে
-            inStock: true,                    // true = In Stock, false = Out of Stock
+            showStockBadge: true,      // true = দেখাবে, false = হাইড থাকবে
+            inStock: true,             // true = In Stock, false = Out of Stock
             
-            price: 1499,
-            deliveryCharge: 120,              // ডেলিভারি চার্জ
+            price: 1499,               // প্রোডাক্টের দাম (সংখ্যা)
+            deliveryCharge: 130,       // ডেলিভারি চার্জ (সংখ্যা)
             warrantyDuration: "1 Year Replacement Warranty",
             
             whatsAppNumber: "8801700000000",   // ওয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ)
             
-            soldLabel: "Total Booked",         // "Total Sold" অথবা "Total Booked"
+            soldLabel: "Total Booked",
             totalSold: "1,250"
         };
 
         const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80";
         let currentQuantity = 1;
 
-        // Safe Initialization Wrap
-        try {
-            document.getElementById("companyName").innerText = CONFIG.companyName || "YOUR BRAND";
-            document.getElementById("companyTagline").innerText = CONFIG.companyTagline || "";
-            if (CONFIG.companyLogo) document.getElementById("companyLogo").src = CONFIG.companyLogo;
-            document.getElementById("productId").innerText = CONFIG.productId || "001";
-            
-            document.getElementById("productName").innerText = CONFIG.productName || "PRODUCT NAME";
-            document.getElementById("productDesc").innerText = CONFIG.productDesc || "";
-            document.getElementById("soldLabelText").innerText = CONFIG.soldLabel || "Total Sold";
-            document.getElementById("totalSold").innerText = CONFIG.totalSold || "0";
-            document.getElementById("unitPrice").innerText = (CONFIG.price || 0).toLocaleString('en-IN');
-            document.getElementById("warrantyText").innerText = CONFIG.warrantyDuration || "N/A";
+        // 1. QUANTITY CHANGE FUNCTION
+        function changeQty(amount) {
+            if (CONFIG.inStock === false) return;
 
-            const imgEl = document.getElementById("productImg");
-            imgEl.src = CONFIG.productImg || DEFAULT_IMAGE;
-            imgEl.onerror = function() { this.src = DEFAULT_IMAGE; };
-
-            if (CONFIG.descriptionPoints && CONFIG.descriptionPoints.length > 0) {
-                const pointsContainer = document.getElementById("descPoints");
-                pointsContainer.innerHTML = "";
-                CONFIG.descriptionPoints.forEach(point => {
-                    const li = document.createElement("li");
-                    li.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${point}</span>`;
-                    pointsContainer.appendChild(li);
-                });
+            let newQty = currentQuantity + amount;
+            if (newQty >= 1) {
+                currentQuantity = newQty;
+                document.getElementById("qtyDisplay").innerText = currentQuantity;
+                calculateTotal();
             }
+        }
 
-            document.getElementById("waChatBtn").href = `https://wa.me/${CONFIG.whatsAppNumber}?text=${encodeURIComponent("Hello! I have a question about " + CONFIG
+        // 2. LIVE CALCULATOR FUNCTION
+        function calculateTotal() {
+            const unitPrice = Number(CONFIG.price) || 0;
+            const delCharge = Number(CONFIG.deliveryCharge) || 0;
+            const grandTotal = (unitPrice * currentQuantity) + delCharge;
+
+            document.getElementById("deliveryChargeDisplay").innerText = delCharge.toLocaleString('en-IN');
+            document.getElementById("totalAmountDisplay").innerText = grandTotal.toLocaleString('en-IN');
+        }
+
+        // 3. PAGE DYNAMIC BINDING (CONFIG থেকে তথ্য নিয়ে পেজে বসানো)
+        function initPage() {
+            try {
+                // Header & Product Info
+                document.getElementById("companyName").innerText = CONFIG.companyName || "";
+                document.getElementById("companyTagline").innerText = CONFIG.companyTagline || "";
+                document.getElementById("companyLogo").src = CONFIG.companyLogo || DEFAULT_IMAGE;
+                document.getElementById("productId").innerText = CONFIG.productId || "";
+                
+                document.getElementById("productName").innerText = CONFIG.productName || "";
+                document.getElementById("productDesc").innerText = CONFIG.productDesc || "";
+                document.getElementById("soldLabelText").innerText = CONFIG.soldLabel || "Total Sold";
+                document.getElementById("totalSold").innerText = CONFIG.totalSold || "0";
+                document.getElementById("unitPrice").innerText = (Number(CONFIG.price) || 0).toLocaleString('en-IN');
+                document.getElementById("warrantyText").innerText = CONFIG.warrantyDuration || "";
+
+                // Product Image with Error Fallback
+                const imgEl = document.getElementById("productImg");
+                imgEl.src = CONFIG.productImg || DEFAULT_IMAGE;
+                imgEl.onerror = function() { this.src = DEFAULT_IMAGE; };
+
+                // Description Points Render
+                const pointsUl = document.getElementById("descPoints");
+                pointsUl.innerHTML = "";
+                if (CONFIG.descriptionPoints && Array.isArray(CONFIG.descriptionPoints)) {
+                    CONFIG.descriptionPoints.forEach(pt => {
+                        const li
