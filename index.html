@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Landing Page</title>
-    <!-- Google Fonts & FontAwesome Icons -->
+    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -406,6 +406,31 @@
 </head>
 <body>
 
+    <!-- 
+    ====================================================================
+    🛠️ মাস্টার এডিটিং সেকশন (আপনার সব তথ্য শুধু নিচে এডিট করবেন)
+    ====================================================================
+    -->
+    <div id="site-settings"
+        data-company-name="YOUR COMPANY"
+        data-company-tagline="Quality You Can Trust"
+        data-company-logo="https://cdn-icons-png.flaticon.com/512/3081/3081559.png"
+        data-product-id="0023"
+        data-product-name="SMART WATCH ULTRA PRO"
+        data-product-img="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+        data-product-desc="High quality smartwatch with long battery backup, full touch display, Bluetooth calling, and multiple fitness tracking modes."
+        data-points="100% Original & Premium Quality Guaranteed | HD Amoled Full Touch Color Display | Long Battery Backup (Up to 7 Days) | Waterproof Body"
+        data-warranty="1 Year Replacement Warranty"
+        data-sold-label="Total Booked"
+        data-total-sold="1,250"
+        data-show-stock-badge="true"
+        data-in-stock="true"
+        data-price="1499"
+        data-delivery-charge="130"
+        data-button-text="ORDER NOW"
+        data-whatsapp="8801700000000">
+    </div>
+
     <div class="container">
 
         <!-- HEADER -->
@@ -439,7 +464,7 @@
                 </div>
                 <div class="price-box">
                     <div class="price-label">— PRICE —</div>
-                    <div class="price-value">৳ <span id="unitPriceDisplay">600</span></div>
+                    <div class="price-value">৳ <span id="unitPriceDisplay">0</span></div>
                     <div class="stock-badge" id="stockBadge">
                         <i class="fa-solid fa-circle-check"></i> <span id="stockBadgeText">IN STOCK</span>
                     </div>
@@ -528,90 +553,72 @@
 
     </div>
 
-    <!-- JAVASCRIPT MASTER CONTROL -->
+    <!-- JAVASCRIPT CORE ENGINE (হাত দেওয়ার প্রয়োজন নেই) -->
     <script>
-        /******************************************************************
-         * ⚙️ MASTER CONFIGURATION (আপনার প্রয়োজনীয় সব এডিট এক জায়গায়)
-         ******************************************************************/
-        const CONFIG = {
-            // ১. কোম্পানি ইনফো ও প্রোডাক্ট আইডি
-            companyName: "YOUR pussy",
-            companyTagline: "Quality You Can Trusted",
-            companyLogo: "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
-            productId: "0023",
-
-            // ২. প্রোডাক্টের নাম, ছবি ও বিবরণ
-            productName: "SMART WATCH ULTRA PRO",
-            productImg: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
-            productDesc: "High quality smartwatch with long battery backup, full touch display, Bluetooth calling, and multiple fitness tracking modes.",
-            descriptionPoints: [
-                "100% Original & Premium Quality Guaranteed",
-                "HD Amoled Full Touch Color Display",
-                "Long Battery Backup (Up to 7 Days)",
-                "Waterproof and Dust Resistant Body"
-            ],
-            warrantyDuration: "1 Year Replacement Warranty",
-
-            // ৩. সেলস ও স্টক সম্পর্কিত এডিটিং (হাইড/শো ও ইন/আউট স্টক)
-            soldLabel: "Total Booked",     // 'Total Booked' অথবা 'Total Sold' লিখতে পারেন
-            totalSold: "19",            // বিক্রির সংখ্যা
-            showStockBadge: false,          // true = স্টক ব্যাজ দেখাবে, false = হাইড রাখবে
-            inStock: true,                 // true = In Stock, false = Out of Stock (বাটন লক হয়ে যাবে)
-
-            // ৪. প্রাইস ও ডেলিভারি চার্জ (শুধু সংখ্যা লিখবেন)
-            price: 590,
-            deliveryCharge: 120,
-
-            // ৫. বাটন টেক্সট ও ওয়াটসঅ্যাপ
-            buttonText: "BOOK NOW",      // যেমন: "ORDER NOW" অথবা "BOOK NOW"
-            whatsAppNumber: "8801700000000" // ওয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ)
-        };
-
-        // ==========================================
-        //  সিস্টেম লজিক (এখান থেকে পরিবর্তন করার প্রয়োজন নেই)
-        // ==========================================
-        const DEFAULT_IMG = "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80";
         let currentQty = 1;
+        const DEFAULT_IMG = "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80";
 
-        // ১. কোয়ান্টিটি পরিবর্তনের ফাংশন (+ / -)
+        function getSettings() {
+            const el = document.getElementById("site-settings");
+            return el ? el.dataset : {};
+        }
+
+        function calculateTotal() {
+            const s = getSettings();
+            const price = Number(s.price) || 0;
+            const delivery = Number(s.deliveryCharge) || 0;
+            const grandTotal = (price * currentQty) + delivery;
+
+            document.getElementById("unitPriceDisplay").innerText = price.toLocaleString('en-IN');
+            document.getElementById("deliveryChargeDisplay").innerText = delivery.toLocaleString('en-IN');
+            document.getElementById("totalAmountDisplay").innerText = grandTotal.toLocaleString('en-IN');
+        }
+
         function changeQty(amount) {
-            if (!CONFIG.inStock) return;
+            const s = getSettings();
+            if (s.inStock === "false") return;
 
-            let newQty = currentQty + amount;
-            if (newQty >= 1) {
-                currentQty = newQty;
+            let nextQty = currentQty + amount;
+            if (nextQty >= 1) {
+                currentQty = nextQty;
                 document.getElementById("qtyDisplay").innerText = currentQty;
                 calculateTotal();
             }
         }
 
-        // ২. লাইভ প্রাইস হিসাবের ফাংশন
-        function calculateTotal() {
-            const unitPrice = Number(CONFIG.price) || 0;
-            const delCharge = Number(CONFIG.deliveryCharge) || 0;
-            const grandTotal = (unitPrice * currentQty) + delCharge;
+        function initApp() {
+            const s = getSettings();
 
-            document.getElementById("unitPriceDisplay").innerText = unitPrice.toLocaleString('en-IN');
-            document.getElementById("deliveryChargeDisplay").innerText = delCharge.toLocaleString('en-IN');
-            document.getElementById("totalAmountDisplay").innerText = grandTotal.toLocaleString('en-IN');
-        }
+            document.getElementById("companyName").innerText = s.companyName || "";
+            document.getElementById("companyTagline").innerText = s.companyTagline || "";
+            document.getElementById("companyLogo").src = s.companyLogo || DEFAULT_IMG;
+            document.getElementById("productId").innerText = s.productId || "";
+            document.getElementById("productName").innerText = s.productName || "";
+            document.getElementById("productDesc").innerText = s.productDesc || "";
+            document.getElementById("warrantyText").innerText = s.warranty || "";
+            document.getElementById("soldLabel").innerText = s.soldLabel || "Total Sold";
+            document.getElementById("totalSold").innerText = s.totalSold || "0";
+            document.getElementById("orderBtnText").innerText = s.buttonText || "ORDER NOW";
 
-        // ৩. পেজে ডেটা সেট করা
-        function renderPage() {
-            try {
-                // টেক্সট ডাটা
-                document.getElementById("companyName").innerText = CONFIG.companyName;
-                document.getElementById("companyTagline").innerText = CONFIG.companyTagline;
-                document.getElementById("companyLogo").src = CONFIG.companyLogo || DEFAULT_IMG;
-                document.getElementById("productId").innerText = CONFIG.productId;
-                
-                document.getElementById("productName").innerText = CONFIG.productName;
-                document.getElementById("productDesc").innerText = CONFIG.productDesc;
-                document.getElementById("soldLabel").innerText = CONFIG.soldLabel;
-                document.getElementById("totalSold").innerText = CONFIG.totalSold;
-                document.getElementById("warrantyText").innerText = CONFIG.warrantyDuration;
-                document.getElementById("orderBtnText").innerText = CONFIG.buttonText;
+            const imgEl = document.getElementById("productImg");
+            imgEl.src = s.productImg || DEFAULT_IMG;
+            imgEl.onerror = function() { this.src = DEFAULT_IMG; };
 
-                // ছবি ও এর এরর হ্যান্ডলিং
-                const imgEl = document.getElementById("productImg");
-                imgEl.src = CON
+            // Bullet points render
+            const pointsUl = document.getElementById("descPoints");
+            pointsUl.innerHTML = "";
+            if (s.points) {
+                const list = s.points.split("|");
+                list.forEach(pt => {
+                    if (pt.trim()) {
+                        const li = document.createElement("li");
+                        li.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${pt.trim()}</span>`;
+                        pointsUl.appendChild(li);
+                    }
+                });
+            }
+
+            // Stock badge & Order button state
+            const stockBadge = document.getElementById("stockBadge");
+            const orderBtn = document.getElementById("orderBtn");
+    
