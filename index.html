@@ -176,11 +176,6 @@
             display: inline-block;
         }
 
-        .stock-badge.out-of-stock {
-            background: linear-gradient(135deg, #ef4444, #b91c1c);
-            color: #ffffff;
-        }
-
         .highlights-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -356,12 +351,6 @@
             animation: pulseZoom 2s infinite ease-in-out;
         }
 
-        .btn-order:disabled {
-            background: #4b5563;
-            color: #9ca3af;
-            animation: none;
-        }
-
         .whatsapp-bar {
             background: linear-gradient(135deg, #064e3b, #047857);
             border-radius: 20px;
@@ -407,39 +396,40 @@
 
     <div class="container">
 
-        <!-- HEADER -->
+        <!-- HEADER (সরাসরি এখানেই লোগো ও কোম্পানির নাম এডিট করুন) -->
         <header class="card">
             <div class="logo-area">
-                <img id="companyLogo" src="" alt="Logo">
+                <img id="companyLogo" src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Logo">
                 <div>
-                    <div class="company-title" id="companyName">--</div>
-                    <div class="company-tagline" id="companyTagline">--</div>
+                    <div class="company-title" id="companyName">YOUR COMPANY</div>
+                    <div class="company-tagline">Quality You Can Trust</div>
                 </div>
             </div>
             <div class="product-id-badge">
-                <i class="fa-solid fa-tag"></i> ID: <span id="productId">--</span>
+                <i class="fa-solid fa-tag"></i> ID: <span id="productId">0023</span>
             </div>
         </header>
 
-        <!-- PRODUCT HERO IMAGE -->
+        <!-- PRODUCT IMAGE (ছবির লিংক পরিবর্তন করতে নিচের src="" এডিটিং করুন) -->
         <div class="card hero-card">
             <div class="ribbon-badge">PREMIUM QUALITY<br>★ ★ ★</div>
-            <img id="productImg" class="product-img" src="" alt="Product Image">
+            <img id="productImg" class="product-img" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Product Image">
         </div>
 
         <!-- PRODUCT TITLE & PRICE BLOCK -->
         <div class="card">
             <div class="product-title-row">
                 <div>
-                    <h1 class="product-name" id="productName">--</h1>
+                    <!-- প্রোডাক্টের নাম এখানে এডিট করুন -->
+                    <h1 class="product-name" id="productName">SMART WATCH ULTRA PRO</h1>
                     <div class="sold-count">
-                        <i class="fa-solid fa-fire"></i> <span id="soldLabelText">Total Sold</span>: <span id="totalSold">0</span>+
+                        <i class="fa-solid fa-fire"></i> Total Booked: <span>1,250</span>+
                     </div>
                 </div>
                 <div class="price-box">
                     <div class="price-label">— PRICE —</div>
-                    <div class="price-value">৳ <span id="unitPrice">0</span></div>
-                    <div class="stock-badge" id="stockBadge">
+                    <div class="price-value">৳ <span id="unitPriceDisplay">1499</span></div>
+                    <div class="stock-badge">
                         <i class="fa-solid fa-circle-check"></i> IN STOCK
                     </div>
                 </div>
@@ -453,15 +443,20 @@
             </div>
         </div>
 
-        <!-- DESCRIPTION -->
+        <!-- DESCRIPTION (বিবরণ এখানে এডিট করুন) -->
         <div class="card">
             <div class="desc-title"><i class="fa-solid fa-file-lines"></i> PRODUCT DESCRIPTION</div>
-            <p class="desc-text" id="productDesc">--</p>
+            <p class="desc-text">High quality smartwatch with long battery backup, full touch display, Bluetooth calling, and multiple fitness tracking modes.</p>
             
-            <ul class="desc-points" id="descPoints"></ul>
+            <ul class="desc-points">
+                <li><i class="fa-solid fa-circle-check"></i> <span>100% Original & Premium Quality Guaranteed</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span>HD Amoled Full Touch Color Display</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span>Long Battery Backup (Up to 7 Days)</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span>Waterproof and Dust Resistant Body</span></li>
+            </ul>
 
             <div style="margin-top: 12px; font-size: 11px; color: #a78bfa; font-weight: 600;">
-                <i class="fa-solid fa-circle-info"></i> Warranty: <span id="warrantyText">--</span>
+                <i class="fa-solid fa-circle-info"></i> Warranty: <span>1 Year Replacement Warranty</span>
             </div>
         </div>
 
@@ -498,12 +493,12 @@
 
             <div class="summary-row">
                 <span>Delivery Charge</span>
-                <span>৳ <span id="deliveryChargeDisplay">0</span></span>
+                <span>৳ <span id="deliveryChargeDisplay">130</span></span>
             </div>
 
             <div class="summary-row total">
                 <span>Total Amount</span>
-                <span>৳ <span id="totalAmountDisplay">0</span></span>
+                <span>৳ <span id="totalAmountDisplay">1629</span></span>
             </div>
 
             <button type="submit" id="orderBtn" class="btn-order">
@@ -527,92 +522,83 @@
 
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT CALCULATOR & WHATSAPP LOGIC -->
     <script>
-        /******************************************************************
-         * CONFIGURATION (তথ্যগুলো এখান থেকে এডিট করুন)
-         * দ্রষ্টব্য: টেক্সটের দুইপাশে কোটেশন ("") এবং সংখ্যার শেষে কমা (,) ঠিক রাখবেন।
-         ******************************************************************/
-        const CONFIG = {
-            companyName: "YOUR COMPANY",
-            companyTagline: "Quality You Can Trust",
-            companyLogo: "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
-            
-            productId: "0023",
-            productName: "SMART WATCH ULTRA PRO",
-            productDesc: "High quality smartwatch with long battery backup, full touch display, Bluetooth calling, and multiple fitness tracking modes.",
-            
-            descriptionPoints: [
-                "100% Original & Premium Quality Guaranteed",
-                "HD Amoled Full Touch Color Display",
-                "Long Battery Backup (Up to 7 Days)",
-                "Waterproof and Dust Resistant Body"
-            ],
+        // ==========================================
+        //  ১. শুধু নিচের ৩টি বিষয় এখানে পরিবর্তন করবেন
+        // ==========================================
+        const UNIT_PRICE = 1499;        // পণ্যের একক দাম
+        const DELIVERY_CHARGE = 130;   // ডেলিভারি চার্জ
+        const WHATSAPP_NUMBER = "8801700000000"; // ওয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ)
+        // ==========================================
 
-            productImg: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
-            
-            showStockBadge: true,      // true = দেখাবে, false = হাইড থাকবে
-            inStock: true,             // true = In Stock, false = Out of Stock
-            
-            price: 600,               // প্রোডাক্টের দাম (সংখ্যা)
-            deliveryCharge: 120,       // ডেলিভারি চার্জ (সংখ্যা)
-            warrantyDuration: "1 Year Replacement Warranty",
-            
-            whatsAppNumber: "8801700000000",   // ওয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ)
-            
-            soldLabel: "Total Booked",
-            totalSold: "1,250"
-        };
+        let currentQty = 1;
 
-        const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80";
-        let currentQuantity = 1;
-
-        // 1. QUANTITY CHANGE FUNCTION
+        // কোয়ান্টিটি পরিবর্তন করার ফাংশন (+ / -)
         function changeQty(amount) {
-            if (CONFIG.inStock === false) return;
-
-            let newQty = currentQuantity + amount;
+            let newQty = currentQty + amount;
             if (newQty >= 1) {
-                currentQuantity = newQty;
-                document.getElementById("qtyDisplay").innerText = currentQuantity;
+                currentQty = newQty;
+                document.getElementById("qtyDisplay").innerText = currentQty;
                 calculateTotal();
             }
         }
 
-        // 2. LIVE CALCULATOR FUNCTION
+        // লাইভ প্রাইস ক্যালকুলেটর
         function calculateTotal() {
-            const unitPrice = Number(CONFIG.price) || 0;
-            const delCharge = Number(CONFIG.deliveryCharge) || 0;
-            const grandTotal = (unitPrice * currentQuantity) + delCharge;
-
-            document.getElementById("deliveryChargeDisplay").innerText = delCharge.toLocaleString('en-IN');
-            document.getElementById("totalAmountDisplay").innerText = grandTotal.toLocaleString('en-IN');
+            const total = (UNIT_PRICE * currentQty) + DELIVERY_CHARGE;
+            document.getElementById("unitPriceDisplay").innerText = UNIT_PRICE.toLocaleString('en-IN');
+            document.getElementById("deliveryChargeDisplay").innerText = DELIVERY_CHARGE.toLocaleString('en-IN');
+            document.getElementById("totalAmountDisplay").innerText = total.toLocaleString('en-IN');
         }
 
-        // 3. PAGE DYNAMIC BINDING (CONFIG থেকে তথ্য নিয়ে পেজে বসানো)
-        function initPage() {
-            try {
-                // Header & Product Info
-                document.getElementById("companyName").innerText = CONFIG.companyName || "";
-                document.getElementById("companyTagline").innerText = CONFIG.companyTagline || "";
-                document.getElementById("companyLogo").src = CONFIG.companyLogo || DEFAULT_IMAGE;
-                document.getElementById("productId").innerText = CONFIG.productId || "";
-                
-                document.getElementById("productName").innerText = CONFIG.productName || "";
-                document.getElementById("productDesc").innerText = CONFIG.productDesc || "";
-                document.getElementById("soldLabelText").innerText = CONFIG.soldLabel || "Total Sold";
-                document.getElementById("totalSold").innerText = CONFIG.totalSold || "0";
-                document.getElementById("unitPrice").innerText = (Number(CONFIG.price) || 0).toLocaleString('en-IN');
-                document.getElementById("warrantyText").innerText = CONFIG.warrantyDuration || "";
+        // পেজ লোড হবার সময় ইনিশিয়াল সেটিংস
+        window.onload = function() {
+            calculateTotal();
 
-                // Product Image with Error Fallback
-                const imgEl = document.getElementById("productImg");
-                imgEl.src = CONFIG.productImg || DEFAULT_IMAGE;
-                imgEl.onerror = function() { this.src = DEFAULT_IMAGE; };
+            // ছবির কোনো সমস্যা হলে ডিফল্ট ইমেজ দেখাবে
+            const imgEl = document.getElementById("productImg");
+            imgEl.onerror = function() {
+                this.src = "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80";
+            };
 
-                // Description Points Render
-                const pointsUl = document.getElementById("descPoints");
-                pointsUl.innerHTML = "";
-                if (CONFIG.descriptionPoints && Array.isArray(CONFIG.descriptionPoints)) {
-                    CONFIG.descriptionPoints.forEach(pt => {
-                        const li
+            // WhatsApp Chat Button Link Update
+            const pName = document.getElementById("productName").innerText;
+            const pId = document.getElementById("productId").innerText;
+            document.getElementById("waChatBtn").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello! I want to know about " + pName + " (ID: " + pId + ")")}`;
+        };
+
+        // ফর্ম সাবমিট ও ওয়াটসঅ্যাপ মেসেজ পাঠানো
+        document.getElementById("orderForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("custName").value.trim();
+            const phone = document.getElementById("custPhone").value.trim();
+            const address = document.getElementById("custAddress").value.trim();
+            
+            const pName = document.getElementById("productName").innerText;
+            const pId = document.getElementById("productId").innerText;
+            const grandTotal = (UNIT_PRICE * currentQty) + DELIVERY_CHARGE;
+
+            const message = 
+`🛒 *NEW ORDER PLACED*
+----------------------------------
+📌 *Product:* ${pName}
+🆔 *Product ID:* ${pId}
+🔢 *Quantity:* ${currentQty}
+💰 *Unit Price:* ৳${UNIT_PRICE}
+🚚 *Delivery Charge:* ৳${DELIVERY_CHARGE}
+💵 *Total Price:* ৳${grandTotal}
+----------------------------------
+👤 *CUSTOMER DETAILS:*
+• *Name:* ${name}
+• *Phone:* ${phone}
+• *Address:* ${address}
+----------------------------------
+Please confirm my order. Thank you!`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`, '_blank');
+        });
+    </script>
+</body>
+</html>
