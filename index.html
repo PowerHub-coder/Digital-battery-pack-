@@ -13,44 +13,66 @@
         body { background: linear-gradient(180deg, #070519 0%, #0f0a2e 50%, #160e3d 100%); color: #ffffff; min-height: 100vh; padding: 20px 10px; display: flex; justify-content: center; }
         .container { max-width: 500px; width: 100%; display: flex; flex-direction: column; gap: 20px; }
         .card { background: rgba(25, 18, 66, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+        
         header { display: flex; justify-content: space-between; align-items: center; }
         .logo-area { display: flex; align-items: center; gap: 12px; }
-        .logo-area img { width: 42px; height: 42px; object-fit: contain; border-radius: 8px; background: rgba(255, 255, 255, 0.1); }
+        
+        .logo-area img, .logo-area svg { 
+            width: 48px !important; 
+            height: 48px !important; 
+            max-width: 48px !important; 
+            max-height: 48px !important; 
+            flex-shrink: 0; 
+            border-radius: 10px;
+        }
+
         .company-title { font-size: 15px; font-weight: 700; text-transform: uppercase; }
         .company-tagline { font-size: 11px; color: #a0a0c0; }
         .product-id-badge { background: linear-gradient(135deg, #fcd34d, #f59e0b); color: #000; padding: 6px 12px; border-radius: 20px; font-weight: 700; font-size: 11px; display: flex; align-items: center; gap: 5px; }
+        
         .hero-card { position: relative; text-align: center; overflow: hidden; background: linear-gradient(180deg, #1d154d 0%, #120b33 100%); padding: 15px; }
         .product-img { width: 100%; height: 280px; object-fit: cover; border-radius: 16px; display: block; }
         .ribbon-badge { position: absolute; top: 25px; right: 25px; background: linear-gradient(135deg, #fbbf24, #d97706); color: #1e1b4b; padding: 6px 10px; border-radius: 10px; font-size: 10px; font-weight: 800; text-align: center; z-index: 2; }
+        
         .product-title-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
         .product-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; border-bottom: 2px solid #fbbf24; display: inline-block; padding-bottom: 2px; }
         .sold-count { font-size: 12px; color: #34d399; font-weight: 600; margin-top: 4px; }
         .price-box { background: linear-gradient(135deg, #7c3aed, #4c1d95); padding: 10px 14px; border-radius: 16px; text-align: center; min-width: 120px; }
         .price-label { font-size: 10px; text-transform: uppercase; color: #ddd6fe; }
         .price-value { font-size: 20px; font-weight: 800; color: #fef08a; margin: 2px 0; }
-        .stock-badge { background: linear-gradient(135deg, #fcd34d, #f59e0b); color: #000; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 8px; display: inline-block; }
+        
+        .stock-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 8px; display: inline-block; }
+        .stock-badge.in-stock { background: linear-gradient(135deg, #fcd34d, #f59e0b); color: #000; }
+        .stock-badge.out-of-stock { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
+        
         .highlights-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 15px; text-align: center; }
         .highlight-item { background: rgba(255, 255, 255, 0.04); padding: 8px 4px; border-radius: 10px; }
         .highlight-item i { font-size: 15px; color: #a78bfa; margin-bottom: 4px; }
         .highlight-item span { display: block; font-size: 9px; color: #cbd5e1; }
+        
         .desc-title { font-size: 13px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; color: #c084fc; }
         .desc-text { font-size: 12px; color: #94a3b8; line-height: 1.6; }
         .desc-points { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
         .desc-points li { font-size: 12px; color: #e2e8f0; display: flex; align-items: center; gap: 8px; }
         .desc-points li i { color: #34d399; font-size: 13px; }
+        
         .order-section { display: flex; flex-direction: column; gap: 12px; }
         .section-header { background: linear-gradient(90deg, #6d28d9, transparent); padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
         .form-group { display: flex; flex-direction: column; gap: 4px; }
         .form-group label { font-size: 11px; color: #cbd5e1; }
         .form-control { background: rgba(15, 10, 46, 0.9); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px 12px; color: #fff; font-size: 13px; }
-        .qty-controls { display: flex; align-items: center; gap: 10px; }
-        .qty-btn { background: #4c1d95; color: #ffffff; border: none; width: 44px; height: 44px; border-radius: 8px; font-weight: bold; font-size: 26px; cursor: pointer; user-select: none; display: flex; align-items: center; justify-content: center; touch-action: manipulation; }
-        .qty-btn:active { background: #6d28d9; transform: scale(0.92); }
-        .qty-val { font-size: 18px; font-weight: bold; width: 30px; text-align: center; }
+        
+        /* Native Native Quantity Controls */
+        .qty-controls { display: flex; align-items: center; gap: 6px; background: rgba(15, 10, 46, 0.9); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 4px; }
+        .qty-btn { background: #4c1d95; color: #ffffff; border: none; width: 36px; height: 36px; border-radius: 8px; font-weight: bold; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .qty-btn:active { background: #6d28d9; }
+        .qty-input { width: 45px; background: transparent; border: none; color: #fff; font-size: 16px; font-weight: bold; text-align: center; }
+        
         .summary-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; padding: 6px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.1); }
         .summary-row.total { border-bottom: none; font-size: 15px; font-weight: 700; color: #fef08a; padding-top: 10px; }
         @keyframes pulseZoom { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
         .btn-order { background: linear-gradient(135deg, #fcd34d, #f59e0b); color: #000; font-weight: 800; font-size: 14px; padding: 14px; border: none; border-radius: 30px; width: 100%; cursor: pointer; margin-top: 5px; display: flex; align-items: center; justify-content: center; gap: 8px; animation: pulseZoom 2s infinite ease-in-out; }
+        
         .whatsapp-bar { background: linear-gradient(135deg, #064e3b, #047857); border-radius: 20px; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; }
         .wa-info { display: flex; align-items: center; gap: 10px; }
         .wa-info i { font-size: 28px; color: #34d399; }
@@ -66,77 +88,58 @@
         <!-- HEADER -->
         <header class="card">
             <div class="logo-area">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="48" height="48">
-  <defs>
-    <!-- ব্যাকগ্রাউন্ড ও আইকনের গ্রেডিয়েন্ট -->
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#160e3d" />
-      <stop offset="100%" stop-color="#070519" />
-    </linearGradient>
-    
-    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fcd34d" />
-      <stop offset="100%" stop-color="#f59e0b" />
-    </linearGradient>
-
-    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#a78bfa" />
-      <stop offset="100%" stop-color="#7c3aed" />
-    </linearGradient>
-  </defs>
-
-  <!-- ব্যাকগ্রাউন্ড কার্ড -->
-  <rect width="500" height="500" rx="100" fill="url(#bgGradient)" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
-
-  <!-- পাওয়ার সিম্বল / বিজলির আইকন -->
-  <g transform="translate(180, 80)">
-    <!-- বাইরের পাওয়ার রিং -->
-    <path d="M 35 45 A 70 70 0 1 0 105 45" fill="none" stroke="url(#purpleGradient)" stroke-width="18" stroke-linecap="round"/>
-    <!-- ভেতরের লাইটনিং বোল্ট -->
-    <path d="M 75 10 L 45 80 L 70 80 L 55 140 L 105 60 L 80 60 Z" fill="url(#goldGradient)" />
-  </g>
-
-  <!-- ব্র্যান্ড নাম (Power Haub) -->
-  <text x="250" y="340" font-family="'Poppins', sans-serif" font-weight="800" font-size="46" fill="#ffffff" text-anchor="middle" letter-spacing="2">
-    POWER <tspan fill="url(#goldGradient)">HAUB</tspan>
-  </text>
-
-  <!-- ট্যাগলাইন -->
-  <text x="250" y="390" font-family="'Poppins', sans-serif" font-weight="600" font-size="18" fill="#a0a0c0" text-anchor="middle" letter-spacing="4">
-    QUALITY YOU CAN TRUST
-  </text>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+                  <defs>
+                    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#160e3d" />
+                      <stop offset="100%" stop-color="#070519" />
+                    </linearGradient>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#fcd34d" />
+                      <stop offset="100%" stop-color="#f59e0b" />
+                    </linearGradient>
+                    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#a78bfa" />
+                      <stop offset="100%" stop-color="#7c3aed" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="500" height="500" rx="100" fill="url(#bgGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="12"/>
+                  <g transform="translate(70, 70) scale(1.4)">
+                    <path d="M 35 45 A 70 70 0 1 0 105 45" fill="none" stroke="url(#purpleGrad)" stroke-width="22" stroke-linecap="round"/>
+                    <path d="M 75 5 L 40 85 L 70 85 L 50 150 L 110 65 L 80 65 Z" fill="url(#goldGrad)" />
+                  </g>
                 </svg>
-                
+
                 <div>
-                    <div class="company-title" id="ui-companyName"></div>
-                    <div class="company-tagline" id="ui-companyTagline"></div>
+                    <div class="company-title" id="ui-companyName">POWER HAUB</div>
+                    <div class="company-tagline" id="ui-companyTagline">Quality You Can Trust</div>
                 </div>
             </div>
             <div class="product-id-badge">
-                <i class="fa-solid fa-tag"></i> ID: <span id="ui-productId"></span>
+                <i class="fa-solid fa-tag"></i> ID: <span id="ui-productId">0020</span>
             </div>
         </header>
 
         <!-- PRODUCT IMAGE HERO -->
         <div class="card hero-card">
             <div class="ribbon-badge">PREMIUM QUALITY<br>★ ★ ★</div>
-            <img id="ui-image" class="product-img" src="" alt="Product">
+            <img id="ui-image" class="product-img" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Product">
         </div>
 
         <!-- PRODUCT TITLE & PRICE BLOCK -->
         <div class="card">
             <div class="product-title-row">
                 <div>
-                    <h1 class="product-name" id="ui-productName"></h1>
+                    <h1 class="product-name" id="ui-productName">SMART WATCH ULTRA</h1>
                     <div class="sold-count">
-                        <i class="fa-solid fa-fire"></i> Total Booked: <span id="ui-totalSold"></span>+
+                        <i class="fa-solid fa-fire"></i> <span id="ui-salesLabel">Total Booked</span>: <span id="ui-totalSold">1250</span>+
                     </div>
                 </div>
                 
                 <div class="price-box">
                     <div class="price-label">— PRICE —</div>
-                    <div class="price-value">৳ <span id="ui-unitPrice"></span></div>
-                    <div class="stock-badge">
+                    <div class="price-value">৳ <span id="ui-unitPrice">560</span></div>
+                    <div id="ui-stockBadge" class="stock-badge in-stock">
                         <i class="fa-solid fa-circle-check"></i> IN STOCK
                     </div>
                 </div>
@@ -153,17 +156,16 @@
         <!-- DESCRIPTION -->
         <div class="card">
             <div class="desc-title"><i class="fa-solid fa-file-lines"></i> PRODUCT DESCRIPTION</div>
-            <p class="desc-text" id="ui-description"></p>
+            <p class="desc-text" id="ui-description">High quality smartwatch with 1.96-inch HD touch screen display and long battery backup.</p>
             
-            <ul class="desc-points">
+            <ul class="desc-points" id="ui-descPoints">
                 <li><i class="fa-solid fa-circle-check"></i> <span>100% Original & Premium Quality Guaranteed</span></li>
                 <li><i class="fa-solid fa-circle-check"></i> <span>HD Amoled Full Touch Color Display</span></li>
                 <li><i class="fa-solid fa-circle-check"></i> <span>Long Battery Backup (Up to 7 Days)</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Waterproof and Dust Resistant Body</span></li>
             </ul>
 
             <div style="margin-top: 12px; font-size: 11px; color: #a78bfa; font-weight: 600;">
-                <i class="fa-solid fa-circle-info"></i> Warranty: <span id="ui-warranty"></span>
+                <i class="fa-solid fa-circle-info"></i> Warranty: <span id="ui-warranty">3 month Warranty</span>
             </div>
         </div>
 
@@ -201,29 +203,29 @@
             <div class="summary-row">
                 <span>Product Quantity</span>
                 <div class="qty-controls">
-                    <button type="button" class="qty-btn" id="btn-minus">-</button>
-                    <span class="qty-val" id="ui-qty">1</span>
-                    <button type="button" class="qty-btn" id="btn-plus">+</button>
+                    <button type="button" class="qty-btn" onclick="stepDownQty()">-</button>
+                    <input type="number" id="qtyInput" class="qty-input" value="1" min="1" max="99" oninput="recalculateTotals()">
+                    <button type="button" class="qty-btn" onclick="stepUpQty()">+</button>
                 </div>
             </div>
 
             <div class="summary-row">
                 <span>Subtotal</span>
-                <span>৳ <span id="ui-subtotal">0</span></span>
+                <span>৳ <span id="ui-subtotal">560</span></span>
             </div>
 
             <div class="summary-row">
                 <span>Delivery Charge</span>
-                <span>৳ <span id="ui-delivery">0</span></span>
+                <span>৳ <span id="ui-delivery">120</span></span>
             </div>
 
             <div class="summary-row total">
                 <span>Total Amount</span>
-                <span>৳ <span id="ui-total">0</span></span>
+                <span>৳ <span id="ui-total">680</span></span>
             </div>
 
-            <button type="submit" class="btn-order">
-                <i class="fa-solid fa-cart-shopping"></i> ORDER NOW
+            <button type="submit" id="ui-submitBtn" class="btn-order">
+                <i class="fa-solid fa-cart-shopping"></i> <span id="ui-btnText">ORDER NOW</span>
             </button>
         </form>
 
@@ -236,104 +238,82 @@
                     <p>We are here to help you!</p>
                 </div>
             </div>
-            <a href="#" id="ui-waLink" class="btn-chat" target="_blank">
+            <a href="https://wa.me/8801955070591" id="ui-waLink" class="btn-chat" target="_blank">
                 CHAT NOW <i class="fa-solid fa-paper-plane"></i>
             </a>
         </div>
 
     </div>
 
-    <!-- MAIN SCRIPT (ALL IN ONE PLACE) -->
     <script>
-        // ==========================================
-        // ✏️ ALL EDIT SECTION (এখানে আপনার সব চেঞ্জ করুন)
-        // ==========================================
+        // EDIT CONFIGURATION
         var EDIT_HERE = {
             companyName: "POWER HAUB",
             companyTagline: "Quality You Can Trust",
             productId: "0020",
-            productName: "32140 3.2v 1500mah rechargeable lithium phosphate battery",
-            unitPrice: 590,             // শুধু সংখ্যা লিখবেন
-            deliveryCharge: 120,        // শুধু সংখ্যা লিখবেন
-            totalSold: 32 of 250,
-            warranty: "3 month",
-            logoUrl: "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
-            imageUrl: "https://share.google/zneQhIlTkJU9vrlFP",
-            description: "High quality and A grade brand new battery.",
-                         "Life cycle: 3000+"
-                         "voltage: 3.2v"
-                         "এই অফার মূল্যে পণ্য পাবার জন্য ২৫০+ অর্ডার করতে হবে। ২৫০+ হলেই সিরিয়লি ক্যাশ অন ডেলিভারি তে পৌঁছে দেয়া হবে।"
-            whatsappNumber: "+8801748778100"
+            productName: "SMART WATCH ULTRA",
+            inStock: true, 
+            salesLabel: "Total Booked", 
+            totalSold: 12,
+            buttonText: "BOOK NOW",
+            unitPrice: 590,             
+            deliveryCharge: 120,        
+            warranty: "3 month Warranty",
+            imageUrl: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+            description: "High quality smartwatch with 1.96-inch HD touch screen display and long battery backup.",
+            featurePoints: [
+                "100% Original & Premium Quality Guaranteed",
+                "HD Amoled Full Touch Color Display",
+                "Long Battery Backup (Up to 7 Days)",
+                "Waterproof and Dust Resistant Body",
+                "Advanced Health & Fitness Tracking"
+            ],
+            whatsappNumber: "+8801955070591"
         };
-        // ==========================================
 
-        // SYSTEM LOGIC (DO NOT EDIT BELOW)
-        var count = 1;
-
-        function render() {
-            var p = Number(EDIT_HERE.unitPrice);
-            var d = Number(EDIT_HERE.deliveryCharge);
-            var sub = p * count;
-            var tot = sub + d;
-
-            document.getElementById("ui-qty").innerText = count;
-            document.getElementById("ui-subtotal").innerText = sub;
-            document.getElementById("ui-total").innerText = tot;
+        function recalculateTotals() {
+            var input = document.getElementById("qtyInput");
+            var qty = parseInt(input.value) || 1;
+            if (qty < 1) qty = 1;
+            
+            var price = EDIT_HERE.unitPrice;
+            var delivery = EDIT_HERE.deliveryCharge;
+            
+            document.getElementById("ui-subtotal").innerText = price * qty;
+            document.getElementById("ui-total").innerText = (price * qty) + delivery;
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            // Load Edit Section Data
-            document.getElementById("ui-companyName").innerText = EDIT_HERE.companyName;
-            document.getElementById("ui-companyTagline").innerText = EDIT_HERE.companyTagline;
-            document.getElementById("ui-productId").innerText = EDIT_HERE.productId;
-            document.getElementById("ui-productName").innerText = EDIT_HERE.productName;
-            document.getElementById("ui-totalSold").innerText = EDIT_HERE.totalSold;
-            document.getElementById("ui-unitPrice").innerText = EDIT_HERE.unitPrice;
-            document.getElementById("ui-delivery").innerText = EDIT_HERE.deliveryCharge;
-            document.getElementById("ui-description").innerText = EDIT_HERE.description;
-            document.getElementById("ui-warranty").innerText = EDIT_HERE.warranty;
-            document.getElementById("ui-logo").src = EDIT_HERE.logoUrl;
-            document.getElementById("ui-image").src = EDIT_HERE.imageUrl;
+        function stepUpQty() {
+            var input = document.getElementById("qtyInput");
+            input.value = (parseInt(input.value) || 1) + 1;
+            recalculateTotals();
+        }
 
+        function stepDownQty() {
+            var input = document.getElementById("qtyInput");
+            var val = (parseInt(input.value) || 1);
+            if (val > 1) {
+                input.value = val - 1;
+                recalculateTotals();
+            }
+        }
+
+        document.getElementById("ui-orderForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            var qty = parseInt(document.getElementById("qtyInput").value) || 1;
+            var total = (EDIT_HERE.unitPrice * qty) + EDIT_HERE.deliveryCharge;
             var cleanNum = String(EDIT_HERE.whatsappNumber).replace(/[^0-9]/g, '');
-            document.getElementById("ui-waLink").href = "https://wa.me/" + cleanNum;
 
-            render();
+            var msg = "🛒 *NEW ORDER PLACED*\n" +
+                "📌 Product: " + EDIT_HERE.productName + "\n" +
+                "🆔 ID: " + EDIT_HERE.productId + "\n" +
+                "🔢 Qty: " + qty + "\n" +
+                "💵 Total: ৳" + total + "\n\n" +
+                "👤 Customer: " + document.getElementById("custName").value + "\n" +
+                "📞 Phone: " + document.getElementById("custPhone").value + "\n" +
+                "📍 Address: " + document.getElementById("custAddress").value + ", " + document.getElementById("custUpazila").value + ", " + document.getElementById("custDistrict").value;
 
-            // Direct Pure Event Listeners for + and -
-            document.getElementById("btn-plus").addEventListener("click", function(e) {
-                e.preventDefault();
-                count++;
-                render();
-            });
-
-            document.getElementById("btn-minus").addEventListener("click", function(e) {
-                e.preventDefault();
-                if (count > 1) {
-                    count--;
-                    render();
-                }
-            });
-
-            // Form Submit Logic
-            document.getElementById("ui-orderForm").addEventListener("submit", function(e) {
-                e.preventDefault();
-                var p = Number(EDIT_HERE.unitPrice);
-                var d = Number(EDIT_HERE.deliveryCharge);
-                var sub = p * count;
-                var tot = sub + d;
-
-                var msg = "🛒 *NEW ORDER PLACED*\n" +
-                    "📌 Product: " + EDIT_HERE.productName + "\n" +
-                    "🆔 ID: " + EDIT_HERE.productId + "\n" +
-                    "🔢 Qty: " + count + "\n" +
-                    "💵 Total: ৳" + tot + "\n\n" +
-                    "👤 Customer: " + document.getElementById("custName").value + "\n" +
-                    "📞 Phone: " + document.getElementById("custPhone").value + "\n" +
-                    "📍 Address: " + document.getElementById("custAddress").value + ", " + document.getElementById("custUpazila").value + ", " + document.getElementById("custDistrict").value;
-
-                window.open("https://api.whatsapp.com/send?phone=" + cleanNum + "&text=" + encodeURIComponent(msg), '_blank');
-            });
+            window.open("https://api.whatsapp.com/send?phone=" + cleanNum + "&text=" + encodeURIComponent(msg), '_blank');
         });
     </script>
 </body>
